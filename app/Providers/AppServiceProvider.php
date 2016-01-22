@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Remarq\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace Remarq\Jobs;
 
 use Illuminate\Bus\Queueable;
 
