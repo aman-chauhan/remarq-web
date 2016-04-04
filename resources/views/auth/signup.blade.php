@@ -20,9 +20,12 @@
                                                 <span class="help-block">{{ $errors->first('firstname') }}</span>
                                         @endif
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
                                         <label for="lastname" class="control-label">Your Last Name</label>
                                         <input type="text" name="lastname" class="form-control" id="lastname" value="{{ Request::old('lastname') ?: '' }}">
+                                        @if ($errors->has('lastname'))
+                                                <span class="help block">{{ $errors->first('lastname') }}</span>
+                                        @endif
                                 </div>
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                         <label for="email" class="control-label">Your E-Mail Address</label>

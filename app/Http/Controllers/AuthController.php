@@ -16,7 +16,8 @@
                 public function postSignup(Request $request)
                 {
                         $this->validate($request, [
-                                'firstname' => 'required|alpha_dash|max:20',
+                                'firstname' => 'required|alpha|max:20',
+                                'lastname' => 'alpha|max:20',
                                 'email' => 'required|unique:students|email|max:255',
                                 'password' => 'required|min:8',
                         ]);
@@ -49,5 +50,12 @@
                         }
 
                         return redirect()->route('home')->with('info', 'You are now signed in.');
+                }
+
+                public function getSignOut()
+                {
+                        Auth::logout();
+
+                        return redirect()->route('home')->with('info', 'You have now successfully logged out.');
                 }
         }
