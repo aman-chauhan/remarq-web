@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Remarq\User::class,
+            'model' => Remarq\Models\User::class,
         ],
 
         // 'users' => [
