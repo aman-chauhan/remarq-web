@@ -17,7 +17,7 @@
                                 abort(404);
                         }
                         return view('profile.index')
-                                ->with('user',$user);
+                                ->with('mainuser',$user);
                 }
 
                 public function getEdit()

@@ -41,7 +41,7 @@ class User extends Model implements AuthenticatableContract
 
         public function getFirstName()
         {
-                return $this->getName() ?: $this->email;
+                return $this->first_name;
         }
 
         public function getEmail()
@@ -52,5 +52,15 @@ class User extends Model implements AuthenticatableContract
         public function getAvatarURL()
         {
                 return "https://www.gravatar.com/avatar/{{ md5($this->email) }}";
+        }
+
+        public function whoIFollow()
+        {
+                return $this->belongsToMany('Remarq\Models\User', 'followstudent', 'user_id', 'follow_id');
+        }
+
+        public function whoFollowMe()
+        {
+                return $this->belongsToMany('Remarq\Models\User', 'followstudent', 'follow_id', 'user_id');
         }
 }

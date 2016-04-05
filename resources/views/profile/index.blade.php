@@ -10,26 +10,53 @@
         <div class="container">
                 <div class="col-md-3">
                         <div class="row">
-                                <hr style="border:1px solid black;">
-                                @include('user.partials.userblock')
-                                <hr style="border:1px solid black;">
+                                @include('user.partials.userblock2')
+                        </div>
+                        <div class="row">
+                                <ul class="list-group">
+                                        <li class="list-group-item"><h3>Follows</h3></li>
+                                        @if (!$mainuser->whoIFollow()->count())
+                                                <li class="list-group-item">{{ $mainuser->getFirstName() }} hasn't followed any student yet.</li>
+                                        @else
+                                                @foreach ($mainuser->whoIFollow as $user)
+                                                        <li class="list-group-item">
+                                                                @include('user.partials.userblock3')
+                                                        </li>
+                                                @endforeach
+                                        @endif
+                                </ul>
+                        </div>
+                        <div class="row">
+                                <ul class="list-group">
+                                        <li class="list-group-item"><h3>Followed By</h3></li>
+                                        @if (!$mainuser->whoFollowMe()->count())
+                                                <li class="list-group-item">{{ $mainuser->getFirstName() }} isn't followed any student yet.</li>
+                                        @else
+                                                @foreach($mainuser->whoFollowMe as $user)
+                                                        <li class="list-group-item">
+                                                                @include('user.partials.userblock3')
+                                                        </li>
+                                                @endforeach
+                                        @endif
+                                </ul>
+                        </div>
+                        <div class="row">
+                                <ul class="list-group">
+                                        <li class="list-group-item"><h3>Courses</h3></li>
+                                </ul>
                         </div>
                 </div>
-                <div class="col-md-9">
-                        <hr style="border:1px solid black;">
-                        <div class="row"><!-- For Students Followed -->
-                                DEF
-                        </div>
-                        <div class="row"> <!-- For Courses Followed -->
-                                GHI
-                        </div>
-                        <div class="row"><!-- For User Timeline Comments-->
-                                JKL
-                        </div>
-                        <div class="row"><!-- For User Timeline Likes-->
-                                MNO
-                        </div>
-                        <hr style="border:1px solid black;">
+                <div class="col-md-6">
+                        <ul class="list-group">
+                                <li class="list-group-item"><h3>Comments</h3></li>
+                                <li class="list-group-item">JKL</li>
+                        </ul>
+                </div>
+                <div class="col-md-3">
+                        <ul class="list-group">
+                                <li class="list-group-item"><h3>Likes</h3></li>
+                                <li class="list-group-item">MNO</li>
+                        </ul>
                 </div>
         </div>
 @stop
