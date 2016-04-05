@@ -5,10 +5,10 @@
         use Remarq\Models\User;
         use DB;
 
-        class FollowController extends Controller
+        class StudentFollowController extends Controller
         {
                 public function getIndex()
                 {
-                        return view('follows.index');
+                        return view('studentfollows.index');
                 }
         }

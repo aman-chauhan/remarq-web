@@ -7,8 +7,12 @@
         <link rel="stylesheet" href="/Remarq/resources/assets/css/homestyle.css">
 
 @section('content')
-        <h3>Welcome to RemarQ</h3>
-        <p>
-                Best application like... ever!
-        </p>
+        <div class="jumbotron">
+                <div class="container text-center">
+                        <h1>RemarQ</h1>
+                        <h5>
+                                Good things happen here.
+                        </h5>
+                </div>
+        </div>
 @stop

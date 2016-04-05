@@ -7,9 +7,9 @@
         <link rel="stylesheet" href="/Remarq/resources/assets/css/homestyle.css">
 
 @section('content')
-        <h3>
-                Update your profile
-        </h3>
+        <div class="page-header">
+                <h2>Update <small>Change your details</small></h2>
+        </div>
         <div class="row">
                 <div class="col-lg-6">
                         <form class="form-vertical" role="form" action="{{ route('profile.edit') }}" method="post">

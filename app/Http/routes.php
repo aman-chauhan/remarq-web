@@ -55,4 +55,10 @@
                         'middleware' => ['auth'],
                 ]);
 
+                Route::get('/students', [
+                        'uses' => '\Remarq\Http\Controllers\StudentFollowController@getIndex',
+                        'as' => 'studentfollows.index',
+                        'middleware' => ['auth'],
+                ]);
+
         });
