@@ -13,27 +13,49 @@
                                 <h2>
                                         Students
                                         <small>
-                                                Get all student updates here.
+                                                People you know.
                                         </small>
                                 </h2>
                         </div>
                 </div>
                 <div class="row">
-                        <div class="col-md-9">
-                                <div class="panel panel-default">
-                                        <div class="panel-heading"><h4>Updates from Students</h4></div>
+			<ul class="nav nav-tabs" role="tablist" style="background-color:#FFFFFF;">
+				<li role="presentation" class="active">
+					<a href="#follows" aria-controls="follows" role="tab" data-toggle="tab">
+						<h6 style="color:#2196F3;">Following &nbsp;{{ $follows->count() }}</h6>
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="#followedby" aria-controls="followedby" role="tab" data-toggle="tab"><h6 style="color:#2196F3;">Followers &nbsp;{{ $followedby->count() }}</h6></a>
+				</li>
+			</ul>
+                        <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" id="follows">
                                         <ul class="list-group">
-                                                <li class="list-group-item">Yo Bro!</li>
+						@if (!$follows->count())
+							<li class="list-group-item">No one is following you.</li>
+						@else
+							@foreach ($follows as $user)
+								<li class="list-group-item">
+									@include('user/partials/userblock3')
+								</li>
+							@endforeach
+						@endif
                                         </ul>
                                 </div>
-                        </div>
-                        <div class="col-md-3">
-                                <div class="panel panel-default">
-                                        <div class="panel-heading"><h4>Followed by</h4></div>
-                                        <ul class="list-group">
-                                                <li class="list-group-item">Yo Bro!</li>
+				<div class="tab-pane" role="tabpanel" id="followedby">
+					<ul class="list-group">
+                                                @if (!$followedby->count())
+							<li class="list-group-item">No one is following you.</li>
+						@else
+							@foreach ($followedby as $user)
+								<li class="list-group-item">
+									@include('user/partials/userblock3')
+								</li>
+							@endforeach
+						@endif
                                         </ul>
-                                </div>
+				</div>
                         </div>
                 </div>
         </div>

@@ -1,9 +1,22 @@
-body
-{
-        padding-top: 80px;
-}
 
 .list-group-item:hover
 {
         background-color: #EEEEEE;
+}
+
+#megacontain
+{
+	padding-top: 64px;
+}
+
+#profile
+{
+	margin-top: -123px;
+}
+
+#backg
+{
+	min-height: 300px;
+	background: url('../images/static_study.jpg') no-repeat center center fixed;
+	background-size: cover;
 }

@@ -12,8 +12,9 @@
 
                 @yield('title')
         </head>
-        <body>
+        <body style="background-color:#EEEEEE;">
                 @include('templates.partials.navigation')
+		@yield('profileback')
                 <div class="container" id="megacontain">
                         @include('templates.partials.alerts')
                         @yield('content')

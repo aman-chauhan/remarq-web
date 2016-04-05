@@ -4,12 +4,21 @@
         </div>
         <ul class="list-group text-center">
                 <li class="list-group-item">
-                        <h3><a href="{{ route('profile.index', ['fullname' => $mainuser->getName()]) }}">{{ $mainuser->getName() }}</a></h3>
-                </li>
-                <li class="list-group-item">
-                        <p class="text-muted">
+                        <h4><a href="{{ route('profile.index', ['fullname' => $mainuser->getName()]) }}">{{ $mainuser->getName() }}</a></h4>
+			<p class="text-muted">
                                 {{ $mainuser->getEmail() }}
                         </p>
                 </li>
+		@if (!(Auth::user()->id == $mainuser->id))
+			@if (Auth::user()->isFollowing($mainuser))
+				<li class="list-group-item">
+					<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Following</a>
+				</li>
+			@else
+				<li class="list-group-item">
+					<a href="{{ route('studentfollows.add', ['username' => $mainuser->getName()]) }}" class="btn btn-primary">Follow</a>
+				</li>
+			@endif
+		@endif
         </ul>
 </div>

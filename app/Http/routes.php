@@ -61,4 +61,10 @@
                         'middleware' => ['auth'],
                 ]);
 
+		Route::get('/students/add/{username}', [
+			'uses' => '\Remarq\Http\Controllers\StudentFollowController@getAdd',
+			'as' => 'studentfollows.add',
+			'middleware' => ['auth'],
+		]);
+
         });

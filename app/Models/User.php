@@ -63,4 +63,14 @@ class User extends Model implements AuthenticatableContract
         {
                 return $this->belongsToMany('Remarq\Models\User', 'followstudent', 'follow_id', 'user_id');
         }
+
+	public function followUser(User $user)
+	{
+		return $this->whoIFollow()->attach($user->id);
+	}
+
+	public function isFollowing(User $user)
+	{
+		return (bool) $this->whoIFollow->where('id', $user->id)->count();
+	}
 }
