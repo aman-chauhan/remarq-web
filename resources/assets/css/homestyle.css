@@ -6,12 +6,13 @@
 
 #megacontain
 {
-	padding-top: 64px;
+	margin-top: 64px;
+	padding-top: 32px;
 }
 
 #profile
 {
-	margin-top: -123px;
+	margin-top: -154px;
 }
 
 #backg
