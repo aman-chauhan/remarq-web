@@ -11,9 +11,9 @@
                 <div class="row">
                         <div class="page-header">
                                 <h2>
-                                        Students
+                                        Courses
                                         <small>
-                                                People you know.
+                                                Subjects you follow.
                                         </small>
                                 </h2>
                         </div>
@@ -22,11 +22,8 @@
 			<ul class="nav nav-tabs" role="tablist" style="background-color:#FFFFFF;">
 				<li role="presentation" class="active">
 					<a href="#follows" aria-controls="follows" role="tab" data-toggle="tab">
-						<h6 style="color:#2196F3;">Following &nbsp;<span class="badge">{{ $follows->count() }}</span></h6>
+						<h6 style="color:#2196F3;">Courses &nbsp;{{ $follows->count() }}</h6>
 					</a>
-				</li>
-				<li role="presentation">
-					<a href="#followedby" aria-controls="followedby" role="tab" data-toggle="tab"><h6 style="color:#2196F3;">Followers &nbsp;{{ $followedby->count() }}</h6></a>
 				</li>
 			</ul>
                         <div class="tab-content">
@@ -35,27 +32,14 @@
 						@if (!$follows->count())
 							<li class="list-group-item">You are following no one.</li>
 						@else
-							@foreach ($follows as $user)
+							@foreach ($follows as $course)
 								<li class="list-group-item">
-									@include('user/partials/userblock3')
+									@include('courses/partials/courseblock3')
 								</li>
 							@endforeach
 						@endif
                                         </ul>
                                 </div>
-				<div class="tab-pane" role="tabpanel" id="followedby">
-					<ul class="list-group">
-                                                @if (!$followedby->count())
-							<li class="list-group-item">No one is following you.</li>
-						@else
-							@foreach ($followedby as $user)
-								<li class="list-group-item">
-									@include('user/partials/userblock3')
-								</li>
-							@endforeach
-						@endif
-                                        </ul>
-				</div>
                         </div>
                 </div>
         </div>

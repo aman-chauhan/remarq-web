@@ -67,4 +67,34 @@
 			'middleware' => ['auth'],
 		]);
 
+		Route::get('/students/remove/{username}', [
+			'uses' => '\Remarq\Http\Controllers\StudentFollowController@getRemove',
+			'as' => 'studentfollows.remove',
+			'middleware' => ['auth'],
+		]);
+
+		Route::get('/course/{coursecode}', [
+                        'uses' => '\Remarq\Http\Controllers\CourseProfileController@getCourse',
+                        'as' => 'course.index',
+                ]);
+
+		Route::get('/courses', [
+                        'uses' => '\Remarq\Http\Controllers\CourseFollowController@getIndex',
+                        'as' => 'coursefollows.index',
+                        'middleware' => ['auth'],
+                ]);
+
+		Route::get('/courses/add/{coursecode}', [
+			'uses' => '\Remarq\Http\Controllers\CourseFollowController@addCourse',
+			'as' => 'coursefollows.add',
+			'middleware' => ['auth'],
+		]);
+
+		Route::get('/courses/remove/{coursecode}', [
+			'uses' => '\Remarq\Http\Controllers\CourseFollowController@removeCourse',
+			'as' => 'coursefollows.remove',
+			'middleware' => ['auth'],
+		]);
+
+
         });

@@ -16,7 +16,7 @@
                 @include('templates.partials.navigation')
 		@yield('profileback')
                 <div class="container" id="megacontain">
-                        @include('templates.partials.alerts')
+			@include('templates.partials.alerts')
                         @yield('content')
                 </div>
 

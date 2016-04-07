@@ -21,13 +21,16 @@
 			@endif
 		@endif
 		<li class="list-group-item">
-			Notes 0
+			Notes <span class="badge">0</span>
 		</li>
 		<li class="list-group-item">
-			Following {{ $mainuser->whoIFollow()->count() }}
+			<a href="{{ route('studentfollows.index') }}">Following </a><span class="badge">{{ $mainuser->whoIFollow()->count() }}</span>
 		</li>
 		<li class="list-group-item">
-			Followers {{ $mainuser->whoFollowMe()->count() }}
+			<a href="{{ route('studentfollows.index') }}">Followers </a><span class="badge">{{ $mainuser->whoFollowMe()->count() }}</span>
+		</li>
+		<li class="list-group-item">
+			<a href="{{ route('coursefollows.index') }}">Courses </a><span class="badge">{{ $mainuser->courseIFollow()->count() }}</span>
 		</li>
         </ul>
 </div>

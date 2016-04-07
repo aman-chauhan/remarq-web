@@ -22,36 +22,36 @@
 					<ul class="nav nav-tabs nav-justified" role="tablist" style="background-color:#FFFFFF;">
 						<li role="presentation" class="active">
 							<a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">
-								<h6 style="color:#2196F3;">Notes &nbsp;<span class="label label-default">
+								<h6 style="color:#2196F3;">Notes &nbsp;<span class="badge">
 									0
 								</span></h6>
 							</a>
 						</li>
 						<li role="presentation">
-							<a href="#comments" aria-controls="comments" role="tab" data-toggle="tab"><h6 style="color:#2196F3;">Comments &nbsp;<span class="label label-default">
+							<a href="#comments" aria-controls="comments" role="tab" data-toggle="tab"><h6 style="color:#2196F3;">Comments &nbsp;<span class="badge">
 								0
 							</span></h6></a>
 						</li>
 						<li role="presentation">
-							<a href="#likes" aria-controls="likes" role="tab" data-toggle="tab"><h6 style="color:#2196F3;">Likes &nbsp;<span class="label label-default">
+							<a href="#likes" aria-controls="likes" role="tab" data-toggle="tab"><h6 style="color:#2196F3;">Likes &nbsp;<span class="badge">
 								0
 							</span></h6></a>
 						</li>
 						<li role="presentation">
 							<a href="#follows" aria-controls="follows" role="tab" data-toggle="tab">
-								<h6 style="color:#2196F3;">Follows &nbsp;<span class="label label-default">
+								<h6 style="color:#2196F3;">Follows &nbsp;<span class="badge">
 									{{ $mainuser->whoIFollow()->count() }}
 								</span></h6>
 							</a>
 						</li>
 						<li role="presentation">
-							<a href="#followedby" aria-controls="followedby" role="tab" data-toggle="tab"><h6 style="color:#2196F3;">Followers &nbsp;<span class="label label-default">
+							<a href="#followedby" aria-controls="followedby" role="tab" data-toggle="tab"><h6 style="color:#2196F3;">Followers &nbsp;<span class="badge">
 								{{ $mainuser->whoFollowMe()->count() }}
 							</span></h6></a>
 						</li>
 						<li role="presentation">
-							<a href="#courses" aria-controls="courses" role="tab" data-toggle="tab"><h6 style="color:#2196F3;">Courses &nbsp;<span class="label label-default">
-								0
+							<a href="#courses" aria-controls="courses" role="tab" data-toggle="tab"><h6 style="color:#2196F3;">Courses &nbsp;<span class="badge">
+								{{ $mainuser->courseIFollow()->count() }}
 							</span></h6></a>
 						</li>
 					</ul>
@@ -89,7 +89,15 @@
                                                 </div>
                                                 <div role="tabpanel" class="tab-pane" id="courses">
                                                         <ul class="list-group">
-                                                                <li class="list-group-item">{{ $mainuser->getFirstName() }} isn't following any course yet.</li>
+								@if (!$mainuser->courseIFollow()->count())
+                                                                        <li class="list-group-item">{{ $mainuser->getFirstName() }} isn't following any course yet.</li>
+                                                                @else
+                                                                        @foreach($mainuser->courseIFollow as $course)
+                                                                                <li class="list-group-item">
+                                                                                        @include('courses.partials.courseblock3')
+                                                                                </li>
+                                                                        @endforeach
+                                                                @endif
                                                         </ul>
                                                 </div>
                                                 <div role="tabpanel" class="tab-pane" id="comments">
@@ -99,7 +107,7 @@
                                                 </div>
                                                 <div role="tabpanel" class="tab-pane" id="likes">
                                                         <ul class="list-group">
-                                                                <li class="list-group-item">{{ $mainuser->getFirstName() }} hasn't liked any note yet.</li>
+								<li class="list-group-item">{{ $mainuser->getFirstName() }} isn't following any course yet.</li>
                                                         </ul>
                                                 </div>
                                         </div>

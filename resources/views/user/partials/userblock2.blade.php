@@ -12,7 +12,7 @@
 		@if (!(Auth::user()->id == $mainuser->id))
 			@if (Auth::user()->isFollowing($mainuser))
 				<li class="list-group-item">
-					<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Following</a>
+					<a href="{{ route('studentfollows.remove', ['username' => $mainuser->getName()]) }}" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Following</a>
 				</li>
 			@else
 				<li class="list-group-item">

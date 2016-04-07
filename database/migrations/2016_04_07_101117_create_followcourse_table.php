@@ -3,20 +3,20 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCoursecodeTable extends Migration
+class CreateFollowcourseTable extends Migration
 {
 	public function up()
 	{
-		Schema::create('coursecode', function(Blueprint $table) {
+		Schema::create('followcourse', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('c_code');
-			$table->string('c_name');
+			$table->integer('user_id');
+			$table->integer('course_id');
 			$table->timestamps();
 		});
 	}
 
 	public function down()
 	{
-		Schema::drop('coursecode');
+		Schema::drop('followcourse');
 	}
 }

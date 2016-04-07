@@ -8,7 +8,7 @@
                         <ul class="nav navbar-nav">
                                 <li><a href="{{ route('home') }}" class="nav-item nav-link">Timeline</a></li>
                                 <li><a href="{{ route('studentfollows.index') }}" class="nav-item nav-link">Students</a></li>
-                                <li><a href="#" class="nav-item nav-link">Courses</a></li>
+                                <li><a href="{{ route('coursefollows.index') }}" class="nav-item nav-link">Courses</a></li>
                         </ul>
                         <form class="navbar-form navbar-left" action="{{ route('search.results') }}" role="search">
                                 <div class="form-group">

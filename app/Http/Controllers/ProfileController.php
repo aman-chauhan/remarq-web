@@ -3,6 +3,7 @@
         namespace Remarq\Http\Controllers;
         use Illuminate\Http\Request;
         use Remarq\Models\User;
+	use Remarq\Models\Course;
         use DB;
         use Auth;
 

@@ -49,11 +49,6 @@ class User extends Model implements AuthenticatableContract
                 return $this->email;
         }
 
-        public function getAvatarURL()
-        {
-                return "https://www.gravatar.com/avatar/{{ md5($this->email) }}";
-        }
-
         public function whoIFollow()
         {
                 return $this->belongsToMany('Remarq\Models\User', 'followstudent', 'user_id', 'follow_id');
@@ -69,8 +64,33 @@ class User extends Model implements AuthenticatableContract
 		return $this->whoIFollow()->attach($user->id);
 	}
 
+	public function unFollowUser(User $user)
+	{
+		return $this->whoIFollow()->detach($user->id);
+	}
+
 	public function isFollowing(User $user)
 	{
 		return (bool) $this->whoIFollow->where('id', $user->id)->count();
+	}
+
+	public function courseIFollow()
+	{
+		return $this->belongsToMany('Remarq\Models\Course', 'followcourse', 'user_id', 'course_id');
+	}
+
+	public function followCourse(Course $course)
+	{
+		return $this->courseIFollow()->attach($course->id);
+	}
+
+	public function unFollowCourse(Course $course)
+	{
+		return $this->courseIFollow()->detach($course->id);
+	}
+
+	public function isFollowingCourse(Course $course)
+	{
+		return (bool) $this->courseIFollow->where('id',$course->id)->count();
 	}
 }
