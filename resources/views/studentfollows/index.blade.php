@@ -26,7 +26,7 @@
 					</a>
 				</li>
 				<li role="presentation">
-					<a href="#followedby" aria-controls="followedby" role="tab" data-toggle="tab"><h6 style="color:#2196F3;">Followers &nbsp;{{ $followedby->count() }}</h6></a>
+					<a href="#followedby" aria-controls="followedby" role="tab" data-toggle="tab"><h6 style="color:#2196F3;">Followers &nbsp;<span class="badge">{{ $followedby->count() }}</span></h6></a>
 				</li>
 			</ul>
                         <div class="tab-content">

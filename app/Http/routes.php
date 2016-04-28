@@ -96,5 +96,10 @@
 			'middleware' => ['auth'],
 		]);
 
+		Route::post('/note',[
+			'uses' => '\Remarq\Http\Controllers\NoteController@postNote',
+			'as' => 'note.post',
+			'middleware' => ['auth'],
+		]);
 
         });

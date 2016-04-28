@@ -4,6 +4,7 @@
         use Illuminate\Http\Request;
         use Remarq\Models\User;
 	use Remarq\Models\Course;
+	use Remarq\Models\Note;
         use DB;
         use Auth;
 
@@ -17,8 +18,14 @@
                         {
                                 abort(404);
                         }
-                        return view('profile.index')
-                                ->with('mainuser',$user);
+
+			$notes=Note::where('user_id', $user->id)
+			->orderBy('created_at', 'desc')
+			->paginate(4);
+
+			return view('profile.index')
+                                ->with('mainuser',$user)
+				->with('notes',$notes);
                 }
 
                 public function getEdit()

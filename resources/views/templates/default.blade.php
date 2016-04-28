@@ -12,7 +12,7 @@
 
                 @yield('title')
         </head>
-        <body style="background-color:#EEEEEE;">
+        <body style="background-color:#FAFAFA;">
                 @include('templates.partials.navigation')
 		@yield('profileback')
                 <div class="container" id="megacontain">

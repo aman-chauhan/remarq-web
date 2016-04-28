@@ -19,7 +19,6 @@
 
                         $users = User::where(DB::raw("CONCAT(first_name, ' ', last_name)"), 'LIKE', "%$query%")->get();
 			$courses = Course::where('c_code', 'LIKE', "%$query%")->orWhere('c_name', 'LIKE', "%$query%")->get();
-
                         return view('search.results')->with('users', $users)->with('courses', $courses);
                 }
         }

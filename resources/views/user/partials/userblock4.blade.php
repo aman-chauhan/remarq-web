@@ -9,7 +9,7 @@
                                 {{ $mainuser->getEmail() }}
                         </p>
                 </li>
-		@if (!(Auth::user()->id == $mainuser->id))
+		<!--@if (!(Auth::user()->id == $mainuser->id))
 			@if (Auth::user()->isFollowing($mainuser))
 				<li class="list-group-item">
 					<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Following</a>
@@ -19,9 +19,9 @@
 					<a href="{{ route('studentfollows.add', ['username' => $mainuser->getName()]) }}" class="btn btn-primary">Follow</a>
 				</li>
 			@endif
-		@endif
+		@endif-->
 		<li class="list-group-item">
-			Notes <span class="badge">0</span>
+			Notes <span class="badge">{{ $mainuser->notesWritten()->count() }}</span>
 		</li>
 		<li class="list-group-item">
 			<a href="{{ route('studentfollows.index') }}">Following </a><span class="badge">{{ $mainuser->whoIFollow()->count() }}</span>

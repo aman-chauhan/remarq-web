@@ -13,6 +13,11 @@ class Course extends Model
 		'c_name',
 	];
 
+	public function getCourseID()
+	{
+		return $this->id;
+	}
+
 	public function getCourseCode()
 	{
 		return $this->c_code;

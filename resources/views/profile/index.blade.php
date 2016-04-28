@@ -7,7 +7,9 @@
         <link rel="stylesheet" href="/Remarq/resources/assets/css/homestyle.css">
 
 @section('profileback')
-	<div class="container-fluid" id="backg"></div>
+	<div class="container-fluid" id="backg" style="min-height: 300px;
+	background: url('/Remarq/resources/assets/images/static_study.jpg') no-repeat center center fixed;
+	background-size: cover;"></div>
 
 @section('content')
         <div class="container" id="profile">
@@ -23,7 +25,7 @@
 						<li role="presentation" class="active">
 							<a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">
 								<h6 style="color:#2196F3;">Notes &nbsp;<span class="badge">
-									0
+									{{ $mainuser->notesWritten()->count() }}
 								</span></h6>
 							</a>
 						</li>
@@ -57,9 +59,26 @@
 					</ul>
                                         <div class="tab-content">
 						<div role="tabpanel" class="tab-pane active" id="notes">
-                                                        <ul class="list-group">
-                                                                <li class="list-group-item">{{ $mainuser->getFirstName() }} hasn't written any note yet.</li>
-                                                        </ul>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="panel-group">
+										@if (!$notes->count())
+											<div class="panel panel-default">
+												<div class="panel-heading">
+													No notes were uploaded by {{ $mainuser->getName() }}.
+												</div>
+											</div>
+										@else
+											@foreach ($notes as $note)
+												@include('notes.partials.noteblock1')
+											@endforeach
+										@endif
+									</div>
+									<div class="text-center">
+										{!! $notes->render() !!}
+									</div>
+								</div>
+							</div>
                                                 </div>
 						<div role="tabpanel" class="tab-pane" id="follows">
                                                         <ul class="list-group">

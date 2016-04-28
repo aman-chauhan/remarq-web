@@ -3,6 +3,7 @@
         namespace Remarq\Http\Controllers;
         use Illuminate\Http\Request;
 	use Remarq\Models\Course;
+	use Remarq\Models\Note;
 
         class CourseProfileController extends Controller
         {
@@ -14,6 +15,11 @@
 			{
 				abort(404);
 			}
-			return view('course.index')->with('course',$course);
+
+			$notes=Note::where('course_id', $course->id)
+			->orderBy('created_at', 'desc')
+			->paginate(4);
+
+			return view('course.index')->with('course',$course)->with('notes',$notes);
 		}
         }

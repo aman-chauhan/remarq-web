@@ -49,6 +49,11 @@ class User extends Model implements AuthenticatableContract
                 return $this->email;
         }
 
+	public function notesWritten()
+	{
+		return $this->hasMany('Remarq\Models\Note', 'user_id');
+	}
+
         public function whoIFollow()
         {
                 return $this->belongsToMany('Remarq\Models\User', 'followstudent', 'user_id', 'follow_id');

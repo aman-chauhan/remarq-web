@@ -12,12 +12,5 @@
 
 #profile
 {
-	margin-top: -160px;
-}
-
-#backg
-{
-	min-height: 300px;
-	background: url('../images/static_study.jpg') no-repeat center center fixed;
-	background-size: cover;
+	margin-top: -159px;
 }

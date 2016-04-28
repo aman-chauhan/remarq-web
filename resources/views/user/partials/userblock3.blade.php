@@ -7,5 +7,4 @@
         <div class="media-body media-middle">
                 <h5 class="media-heading"><a href="{{ route('profile.index', ['fullname' => $user->getName()]) }}">{{ $user->getName() }}</a></h5>
         </div>
-        
 </div>
